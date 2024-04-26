@@ -123,7 +123,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "JsonSource",
+						"type": "DelimitedTextSource",
 						"additionalColumns": [
 							{
 								"name": "my_column",
@@ -134,11 +134,12 @@
 							}
 						],
 						"storeSettings": {
-							"type": "HttpReadSettings",
-							"requestMethod": "GET"
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
 						},
 						"formatSettings": {
-							"type": "JsonReadSettings"
+							"type": "DelimitedTextReadSettings"
 						}
 					},
 					"enableStaging": false,
@@ -160,7 +161,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "ds_http_server",
+						"referenceName": "DS_SOURCE_TEMP_TXT_DATA",
 						"type": "DatasetReference"
 					}
 				]
