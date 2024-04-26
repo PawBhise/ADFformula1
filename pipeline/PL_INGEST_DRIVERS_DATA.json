@@ -123,7 +123,7 @@
 				"userProperties": [],
 				"typeProperties": {
 					"source": {
-						"type": "DelimitedTextSource",
+						"type": "JsonSource",
 						"additionalColumns": [
 							{
 								"name": "my_column",
@@ -134,23 +134,11 @@
 							}
 						],
 						"storeSettings": {
-							"type": "AzureBlobFSReadSettings",
-							"recursive": true,
-							"enablePartitionDiscovery": false
+							"type": "HttpReadSettings",
+							"requestMethod": "GET"
 						},
 						"formatSettings": {
-							"type": "DelimitedTextReadSettings"
-						}
-					},
-					"sink": {
-						"type": "DelimitedTextSink",
-						"storeSettings": {
-							"type": "AzureBlobFSWriteSettings"
-						},
-						"formatSettings": {
-							"type": "DelimitedTextWriteSettings",
-							"quoteAllText": true,
-							"fileExtension": ".txt"
+							"type": "JsonReadSettings"
 						}
 					},
 					"enableStaging": false,
@@ -164,27 +152,15 @@
 								},
 								"sink": {
 									"type": "String",
-									"physicalType": "String",
 									"ordinal": 1
 								}
 							}
-						],
-						"typeConversion": true,
-						"typeConversionSettings": {
-							"allowDataTruncation": true,
-							"treatBooleanAsNumber": false
-						}
+						]
 					}
 				},
 				"inputs": [
 					{
-						"referenceName": "DS_SOURCE_TEMP_TXT_DATA",
-						"type": "DatasetReference"
-					}
-				],
-				"outputs": [
-					{
-						"referenceName": "DS_SINK_DRIVERS_DATA",
+						"referenceName": "ds_http_server",
 						"type": "DatasetReference"
 					}
 				]
@@ -322,7 +298,7 @@
 			}
 		},
 		"folder": {
-			"name": "API_Ingestion_Pipelines"
+			"name": "INGESTION"
 		},
 		"annotations": []
 	}
