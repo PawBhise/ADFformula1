@@ -2,7 +2,7 @@
 	"name": "DS_SINK_DRIVERS_DATA",
 	"properties": {
 		"linkedServiceName": {
-			"referenceName": "LS_formulaoneraceadlsgen2_ADLS_GEN2",
+			"referenceName": "AzureDataLakeStorage2",
 			"type": "LinkedServiceReference"
 		},
 		"annotations": [],
